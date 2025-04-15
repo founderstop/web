@@ -1,4 +1,88 @@
-# Astro Starter Kit: Basics
+# Founder Stop Photography
+
+![Founder Stop Logo](public/images/logo.svg)
+
+A professional photography service for startup founders, built by a founder who understands exactly what startups need. This site was created with Astro and Tailwind CSS, featuring a clean, developer-friendly design.
+
+## About This Site
+
+Founder Stop Photography offers the "Git Push" package - a specialized photography service for startup founders that need professional images but don't know where to start.
+
+### Key Features
+
+- **Tech-focused branding** using developer terminology (Git Push)
+- **JetBrains Mono** typography for a developer-friendly aesthetic
+- **Simple, straightforward approach** with one clear package
+- **Modern, responsive design** built with Astro and Tailwind CSS
+- **Netlify-ready forms** for easy deployment
+
+## Tech Stack
+
+- **Framework**: Astro
+- **Styling**: Tailwind CSS
+- **Typography**: JetBrains Mono
+- **Deployment**: Optimized for Netlify
+
+## Project Structure
+
+```text
+/
+├── public/
+│   ├── images/        # Site images, logo, portfolio samples
+│   └── favicon.svg    # Custom site favicon
+├── src/
+│   ├── components/    # Page components
+│   │   ├── About.astro
+│   │   ├── Contact.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   ├── Navbar.astro
+│   │   ├── Portfolio.astro
+│   │   └── Services.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── tailwind.css
+└── package.json
+```
+
+## Development Commands
+
+| Command             | Action                                      |
+| :------------------ | :------------------------------------------ |
+| `npm install`       | Install dependencies                        |
+| `npm run dev`       | Start dev server at `localhost:4321`        |
+| `npm run build`     | Build for production to `./dist/`           |
+| `npm run preview`   | Preview production build locally            |
+
+## Deployment
+
+The site is optimized for deployment on Netlify with form handling:
+
+1. Connect your Netlify account to your repository
+2. Deploy with the default settings
+3. Forms will work automatically with the Netlify attribute
+
+## Customization
+
+### Adding Real Photography Samples
+
+1. Add your images to the `public/images/` directory
+2. Update the image references in the portfolio component
+
+### Updating Content
+
+Each section is contained in its own component for easy updates:
+
+- Change package details in `src/components/Services.astro`
+- Update bio information in `src/components/About.astro`
+- Modify contact details in `src/components/Contact.astro`
+
+## Made by Robert Ross
+
+Created by Robert Ross, founder of FireHydrant. Photography is my creative outlet away from the startup hustle.
 
 ```sh
 npm create astro@latest -- --template basics

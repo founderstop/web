@@ -9,12 +9,34 @@
       <div class="md:w-1/3">
         <div class="relative">
           <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30"></div>
-          <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-            <img
-              src="/images/robert-ross.jpg"
-              alt="Robert Ross, Founder of FireHydrant and Photographer"
-              class="w-full h-full object-cover"
-            />
+          <div class="relative mx-auto">
+            <!-- Stacked images with offset and shadow effect -->
+            <!-- Bottom image with shadow and rotation -->
+            <div class="absolute bottom-4 -left-8 w-36 h-36 rounded-lg shadow-xl rotate-12 overflow-hidden border-4 border-white">
+              <img
+                src="/images/my-work/random-shots-01.jpg"
+                alt="Sample photography work"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Back right image with shadow and rotation -->
+            <div class="absolute -top-6 -right-4 w-40 h-40 rounded-lg shadow-xl rotate-6 overflow-hidden border-4 border-white">
+              <img
+                src="/images/my-work/landscape-01.jpg"
+                alt="Landscape photography sample"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Front main image -->
+            <div class="relative w-full h-80 rounded-2xl shadow-xl overflow-hidden border-4 border-white z-10">
+              <img
+                src="/images/my-work/hero.jpg"
+                alt="Robert Ross, Founder of FireHydrant and Photographer"
+                class="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
