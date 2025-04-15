@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb',
+        primary: '#4881ff',
         secondary: '#4f46e5',
-        dark: '#111827',
+        dark: '#00102d',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['JetBrains Mono', 'monospace'],
       },
     },
   },
