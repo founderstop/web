@@ -1,0 +1,128 @@
+---
+const pricingDetails = {
+  basePrice: "$300",
+  description: "If I haven't convinced you by now, I'm not sure what will.",
+  additionalOptions: [
+    {
+      title: "Less than $250k raised",
+      price: "Buy me a coffee",
+      description: "You have a long road ahead of you, and because of that your price is the same as a coffee. I'm not even kidding (but I am selective)."
+    },
+    {
+      title: "More than $50M raised",
+      price: "5,000,000 preferred shares",
+      description: "The price is the price"
+    },
+    {
+      title: "Everyone else",
+      price: "$300",
+      description: "I need money to serve my crippling camera lens addiction."
+    },
+  ],
+  priceNotes: [
+    "Prices are in USD",
+    "I don't travel to anywhere beyond Brooklyn or Manhattan",
+    "50% deposit required to secure booking (my time is valuable)"
+  ],
+  faq: [
+    {
+      question: "What forms of payment do you accept?",
+      answer: "Venmo or Apple Cash. The price doubles if you try to pay with crypto."
+    },
+    {
+      question: "Is this real?",
+      answer: "Yes."
+    },
+    {
+      question: "Why though?",
+      answer: "I like hanging out with founders. I like taking photos. I like money. It's a win-win.",
+    },
+    {
+      question: "Have you told your board about this?",
+      answer: "Nope. But they're pretty cool so I'm not worried about it."
+    },
+    {
+      question: "How do you deliver the photos?",
+      answer: "You'll get a link to a private folder in Google Drive where you can download the photos."
+    },
+    {
+      question: "Do you offer a discount if I don't need all the photos?",
+      answer: "You'll need them, trust me."
+    }
+  ]
+};
+---
+
+<section id="pricing" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Pricing Details</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        It's simple.
+      </p>
+      <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-primary p-8 mb-12">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 pb-8 border-b border-gray-200">
+          <div>
+            <h3 class="text-2xl font-bold mb-2">The Package</h3>
+            <p class="text-gray-700">{pricingDetails.description}</p>
+          </div>
+          <div class="text-4xl font-bold text-primary mt-4 md:mt-0">{pricingDetails.basePrice}</div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="text-xl font-bold mb-4">Special deals for special people</h4>
+          <div class="space-y-6">
+            {pricingDetails.additionalOptions.map(option => (
+              <div class="flex justify-between items-center">
+                <div>
+                  <h5 class="font-medium text-lg">{option.title}</h5>
+                  <p class="text-gray-600">{option.description}</p>
+                </div>
+                <div class="font-bold text-lg text-right w-1/2">{option.price}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <h4 class="text-xl font-bold mb-4">Important Notes</h4>
+          <ul class="space-y-2">
+            {pricingDetails.priceNotes.map(note => (
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-primary flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="ml-2 text-gray-700">{note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h4 class="text-xl font-bold mb-4">Frequently Asked Questions</h4>
+          <div class="space-y-6">
+            {pricingDetails.faq.map(item => (
+              <div>
+                <h5 class="font-medium text-lg mb-1">{item.question}</h5>
+                <p class="text-gray-700">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a
+          href="#contact"
+          class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-medium transition text-lg"
+        >
+          Ok fine, let's do it
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
