@@ -1,0 +1,73 @@
+---
+const portfolioItems = [
+  {
+    image: "/images/portfolio-1.jpg",
+    category: "Headshots",
+    title: "Executive Portraits"
+  },
+  {
+    image: "/images/portfolio-2.jpg",
+    category: "Team",
+    title: "Startup Team Photography"
+  },
+  {
+    image: "/images/portfolio-3.jpg",
+    category: "Environment",
+    title: "Workspace Imagery"
+  },
+  {
+    image: "/images/portfolio-4.jpg",
+    category: "Headshots",
+    title: "Professional LinkedIn Photos"
+  },
+  {
+    image: "/images/portfolio-5.jpg",
+    category: "Team",
+    title: "Collaborative Session"
+  },
+  {
+    image: "/images/portfolio-6.jpg",
+    category: "Environment",
+    title: "Office Culture"
+  }
+];
+---
+
+<section id="portfolio" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Portfolio</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        A selection of my recent work with startup founders and their teams.
+      </p>
+      <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {portfolioItems.map(item => (
+        <div class="group relative overflow-hidden rounded-xl shadow-lg">
+          <div class="relative pb-[75%]">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+            <span class="text-primary text-sm font-medium">{item.category}</span>
+            <h3 class="text-white text-xl font-bold">{item.title}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        href="#contact"
+        class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition"
+      >
+        Book Your Session
+      </a>
+    </div>
+  </div>
+</section>

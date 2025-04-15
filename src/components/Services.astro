@@ -1,0 +1,83 @@
+---
+const service = {
+  title: "Git Push",
+  price: "$499",
+  description: "Just like pushing code to production, this photography package delivers everything founders need to push their image to the market.",
+  features: [
+    "2-hour photo session",
+    "15 professionally edited images",
+    "Mix of professional headshots and casual workspace photos",
+    "2 \"rush\" images delivered within 24 hours",
+    "Remaining images delivered within 5 days",
+    "Digital delivery via secure online gallery",
+    "Personal and commercial usage rights for startup purposes",
+    "Image formats optimized for web, social media, and print"
+  ],
+  idealFor: [
+    "Founder headshots",
+    "Team page photos",
+    "Press release images",
+    "Social media profiles",
+    "Investor presentations",
+    "Company about pages"
+  ]
+};
+---
+
+<section id="services" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">The Git Push Package</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+        No confusing options or complex pricing. Just one straightforward package that gives you exactly what you need.
+      </p>
+      <div class="h-1 w-20 bg-primary mx-auto mt-4"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-[1.01] border-2 border-primary ring-4 ring-primary/20">
+        <div class="px-6 py-8 bg-primary text-white text-center">
+          <h3 class="text-3xl font-bold mb-2">{service.title}</h3>
+          <div class="flex items-center justify-center gap-1">
+            <span class="text-4xl font-bold">{service.price}</span>
+          </div>
+        </div>
+        <div class="p-8">
+          <p class="text-gray-700 text-lg text-center mb-8">
+            {service.description}
+          </p>
+
+          <h4 class="text-xl font-bold text-dark mb-4">Package Includes:</h4>
+          <ul class="space-y-4 mb-8 max-w-lg mx-auto">
+            {service.features.map(feature => (
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="ml-3 text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <h4 class="text-xl font-bold text-dark mb-4">Ideal For:</h4>
+          <div class="flex flex-wrap gap-2 justify-center mb-8">
+            {service.idealFor.map(item => (
+              <span class="inline-block bg-gray-100 px-4 py-2 rounded-full text-gray-700">
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div class="text-center">
+            <a
+              href="#contact"
+              class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-medium transition text-lg"
+            >
+              Book Your Session
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
