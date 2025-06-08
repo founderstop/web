@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const portfolioItems = [
   {
     image: "/images/my-work/portfolio-1.jpg",
@@ -70,13 +72,15 @@ const portfolioItems = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {portfolioItems.map(item => (
-        <div class="group relative overflow-hidden rounded-xl shadow-lg">
+      {portfolioItems.map((item, index) => (
+        <div class="group relative overflow-hidden rounded-xl shadow-lg cursor-pointer" onclick={`openModal(${index})`}>
           <div class="relative pb-[75%]">
-            <img
+            <Image
               src={item.image}
               alt={item.title}
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              width={400}
+              height={300}
             />
           </div>
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
@@ -87,9 +91,55 @@ const portfolioItems = [
       ))}
     </div>
 
+    <!-- Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center p-4">
+      <div class="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center">
+        <!-- Close button -->
+        <button 
+          onclick="closeModal()" 
+          class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 transition z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+        >
+          &times;
+        </button>
+        
+        <!-- Previous button -->
+        <button 
+          onclick="previousImage()" 
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 transition z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+        >
+          &#8249;
+        </button>
+        
+        <!-- Next button -->
+        <button 
+          onclick="nextImage()" 
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:text-gray-300 transition z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+        >
+          &#8250;
+        </button>
+        
+        <!-- Image container -->
+        <div class="flex items-center justify-center w-full h-full">
+          <img 
+            id="modalImage" 
+            src="" 
+            alt="" 
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+        
+        <!-- Image info -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center text-white bg-black bg-opacity-50 px-4 py-2 rounded">
+          <div class="text-primary text-sm font-medium" id="modalCategory"></div>
+          <div class="text-white text-lg font-bold" id="modalTitle"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="text-center mt-12">
       <a
         href="#contact"
+        onclick="setTimeout(() => document.getElementById('name')?.focus(), 100)"
         class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition"
       >
         Book Your Session
@@ -97,3 +147,134 @@ const portfolioItems = [
     </div>
   </div>
 </section>
+
+<script>
+  const portfolioItems = [
+    {
+      image: "/images/my-work/portfolio-1.jpg",
+      category: "Shows",
+      title: "Shower Beers Live"
+    },
+    {
+      image: "/images/my-work/portfolio-2.jpg",
+      category: "Outside",
+      title: "Zermatt, Switzerland"
+    },
+    {
+      image: "/images/my-work/portfolio-3.jpg",
+      category: "NYC",
+      title: "Central Park"
+    },
+    {
+      image: "/images/my-work/portfolio-4.jpg",
+      category: "NYC",
+      title: "Central Park"
+    },
+    {
+      image: "/images/my-work/portfolio-5.jpg",
+      category: "NYC",
+      title: "Central Park"
+    },
+    {
+      image: "/images/my-work/portfolio-6.jpg",
+      category: "Bars",
+      title: "One Tequila, Two Tequila, Three Tequila, Floor"
+    },
+    {
+      image: "/images/my-work/portfolio-7.jpg",
+      category: "That special moment",
+      title: "'Babe who is that taking our photo?'"
+    },
+    {
+      image: "/images/my-work/portfolio-8.jpg",
+      category: "Outside",
+      title: "Iceland"
+    },
+    {
+      image: "/images/my-work/portfolio-9.jpg",
+      category: "NYC",
+      title: "West 4th Basketball Court"
+    },
+    {
+      image: "/images/my-work/portfolio-10.jpg",
+      category: "NYC",
+      title: "Fierce"
+    },
+    {
+      image: "/images/my-work/portfolio-11.jpg",
+      category: "NYC",
+      title: "'Can you take a photo of me and my friends?'"
+    }
+  ];
+
+  let currentImageIndex = 0;
+
+  function openModal(index) {
+    currentImageIndex = index;
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    
+    const item = portfolioItems[index];
+    modalImage.src = item.image;
+    modalImage.alt = item.title;
+    modalCategory.textContent = item.category;
+    modalTitle.textContent = item.title;
+    
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % portfolioItems.length;
+    updateModalImage();
+  }
+
+  function previousImage() {
+    currentImageIndex = (currentImageIndex - 1 + portfolioItems.length) % portfolioItems.length;
+    updateModalImage();
+  }
+
+  function updateModalImage() {
+    const modalImage = document.getElementById('modalImage');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    
+    const item = portfolioItems[currentImageIndex];
+    modalImage.src = item.image;
+    modalImage.alt = item.title;
+    modalCategory.textContent = item.category;
+    modalTitle.textContent = item.title;
+  }
+
+  // Close modal on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    } else if (e.key === 'ArrowRight') {
+      nextImage();
+    } else if (e.key === 'ArrowLeft') {
+      previousImage();
+    }
+  });
+
+  // Close modal when clicking outside the image
+  document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
+
+  // Make functions global so they can be called from onclick attributes
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+  window.nextImage = nextImage;
+  window.previousImage = previousImage;
+</script>

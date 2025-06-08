@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <section id="about" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
@@ -12,37 +16,45 @@
             <!-- Stacked images with offset and shadow effect -->
             <!-- Bottom image with shadow and rotation -->
             <div class="absolute -bottom-20 -left-24 w-36 h-36 rounded-lg shadow-xl rotate-12 overflow-hidden border-4 border-white z-10">
-              <img
+              <Image
                 src="/images/my-work/portfolio-1.jpg"
-                alt="Sample photography work"
+                alt="Concert performance at venue"
                 class="w-full h-full object-cover"
+                width={144}
+                height={144}
               />
             </div>
 
             <!-- Back right image with shadow and rotation -->
             <div class="absolute -top-32 right-4 w-40 h-40 rounded-lg shadow-xl rotate-12 overflow-hidden border-4 border-white z-10">
-              <img
+              <Image
                 src="/images/my-work/portfolio-2.jpg"
-                alt="Photography sample"
+                alt="Mountain landscape in Switzerland"
                 class="w-full h-full object-cover"
+                width={160}
+                height={160}
               />
             </div>
 
             <!-- Front main image -->
             <div class="relative w-full h-80 rounded-2xl shadow-xl overflow-hidden border-4 border-white">
-              <img
+              <Image
                 src="/images/my-work/hero.jpg"
                 alt="Robert Ross, Founder of FireHydrant and Photographer"
                 class="w-full h-full object-cover"
+                width={400}
+                height={320}
               />
             </div>
 
             <!-- Front bottom right image -->
             <div class="absolute -bottom-20 right-0 w-36 h-36 -rotate-12 rounded-lg shadow-xl overflow-hidden border-4 border-white z-10">
-              <img
+              <Image
                 src="/images/my-work/portfolio-7.jpg"
-                alt="Photography sample"
+                alt="Couple at outdoor event"
                 class="w-full h-full object-cover"
+                width={144}
+                height={144}
               />
             </div>
           </div>

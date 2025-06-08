@@ -1,7 +1,7 @@
 ---
 const service = {
   title: "Git Push",
-  price: "$300",
+  price: "$150",
   description: "",
   features: [
     "2-hour photo session",
@@ -73,6 +73,7 @@ const service = {
           <div class="text-center">
             <a
               href="#contact"
+              onclick="setTimeout(() => document.getElementById('name')?.focus(), 100)"
               class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-medium transition text-lg"
             >
               Book Your Session

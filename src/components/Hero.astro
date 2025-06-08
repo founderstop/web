@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 // Removing the FlippingImageGallery import as it's no longer needed
 ---
 
@@ -27,10 +28,12 @@
           <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30"></div>
           <div class="relative w-full">
             <div class="rounded-xl overflow-hidden border-4 border-white shadow-xl">
-              <img
+              <Image
                 src="/images/my-work/hero.jpg"
-                alt="Professional photography by Robert Ross"
+                alt="Robert Ross with camera equipment"
                 class="w-full h-auto object-cover"
+                width={600}
+                height={400}
               />
             </div>
           </div>

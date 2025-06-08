@@ -7,6 +7,7 @@ const inputDir = './public/images';
 async function optimizeImage(inputPath, outputPath) {
   try {
     const info = await sharp(inputPath)
+      .rotate() // Auto-rotate based on EXIF orientation
       .resize(1920, 1080, { 
         fit: 'inside',
         withoutEnlargement: true 

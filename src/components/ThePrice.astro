@@ -1,6 +1,6 @@
 ---
 const pricingDetails = {
-  basePrice: "$300",
+  basePrice: "$150",
   description: "If I haven't convinced you by now, I'm not sure what will.",
   additionalOptions: [
     {
@@ -15,7 +15,7 @@ const pricingDetails = {
     },
     {
       title: "Everyone else",
-      price: "$300",
+      price: "$150",
       description: "I need money to serve my crippling camera lens addiction."
     },
   ],
@@ -118,6 +118,7 @@ const pricingDetails = {
       <div class="text-center">
         <a
           href="#contact"
+          onclick="setTimeout(() => document.getElementById('name')?.focus(), 100)"
           class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-medium transition text-lg"
         >
           Ok fine, let's do it
